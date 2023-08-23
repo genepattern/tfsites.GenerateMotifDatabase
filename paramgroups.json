@@ -1,0 +1,17 @@
+[
+    {
+        "name": "define tfsites parameters",
+        "description": "",
+        "hidden": false,
+        "parameters": [
+            "input.data",
+            "IUPAC",
+            "forward.column",
+            "mfi.column",
+            "out.filename",
+            "header.seq",
+            "IUPAC.8mers.only",
+            "min.normalize"
+        ]
+    }
+]
