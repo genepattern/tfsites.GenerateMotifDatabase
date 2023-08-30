@@ -1,83 +1,85 @@
-<!-- remove all comments before releasing -->
-<!-- This is the name of the module as it will appear in GenePatter, and its version, for clarity -->
-# ExampleModule (v2)
+# tfsites.DefineTfSites v1
 
-<!-- A brief text description of the module, usually one sentence in length. -->
-**Description**: This is an example GenePattern module written in Python 3. It can be used as a template for future modules. It reads a file and potentially adds a line of text
+**Author(s):** Joe Solvason  
 
-<!-- This field is for the author or creator of the module. If the algorithm of the module is from a published paper, this is usually the first or corresponding author from the paper. If the module algorithm is unpublished, this is usually the developer of the module itself. This field can simply be a name of a person or group. -->
-**Authors**: Edwin F. Juarez; UCSD - Mesirov Lab, UCSD; Barbara Hill - Mesirov Lab, Broad Institute
+**Contact:** Joe Solvason (solvason@eng.ucsd.edu)
 
-<!--This field is used for responding to help requests for the module, and should be an email address or a link to a website with contact information or a help forum. -->
-**Contact**: [Forum Link](https://groups.google.com/forum/?utm_medium=email&utm_source=footer#!forum/genepattern-help)
+**Adapted as a GenePattern Module by:** Ted Liefeld (jliefeld@cloud.ucsd.edu)
 
-<!-- All modules have a version number associated with them (the last number on the LSID) that is used to differentiate between modules of the same name for reproducibility purposes. However, for publicly released software packages that are wrapped as GenePattern modules, sometimes this version number will be different that the version number of the algorithm itself (e.g. TopHat v7 in GenePattern uses version 2.0.8b of the TopHat algorithm). Since this information is often important to the user, the algorithm version field is an optional attribute that can be used to specify this different version number. Remove this field if not applicable -->
-**Algorithm Version**: _OPTIONAL_ and Not applicable for this particular module
+**Task Type:** Transciption factor analysis
 
-<!-- Why use this module? What does it do? If this is one of a set of modules, how does this module fit in the set? How does it work? write overview as if you are explaining to a novice. Include any links or images which would serve to clarify -->
-## Summary
+**LSID:**  urn:lsid:genepattern.org:module.analysis:00441
 
-This is an example GenePattern module written in [Python 3](https://www.python.org/download/releases/3.0/).
-It can be used as a template for future modules. It reads a file and potentially adds a line of text.
 
-<!-- appropriate papers should be cited here -->
-## References
+## Introduction
 
-<!-- links to your source repository **specific to the release version**, the Docker image used by the module (as specified in your manifest), and (if applicable) the sha link to the Dockerfile used to build your Docker image -->
-## Source Links
-* [The GenePattern ExampleModule v2 source repository](https://github.com/genepattern/ExampleModule/tree/v2)
-* ExampleModule v2 uses the [genepattern/example-module:2 Docker image](https://hub.docker.com/layers/150060459/genepattern/example-module/2/images/sha256-ae4fffff67672e46b251f954ad226b7ad99403c456c1c19911b6ac82f1a27f2f?context=explore)
-* [The Dockerfile used to build that image is here.](https://github.com/genepattern/ExampleModule/blob/v2/Dockerfile)
+tfsites.DefineTfSites normalizes PBM data.
+
+
+## Functionality
+
+TBD
+
+## Methodology
+
+TBD
 
 ## Parameters
-<!-- short description of the module parameters and their default values, as well as whether they are required -->
 
-| Name | Description <!--short description--> | Default Value |
----------|--------------|----------------
-| filename * |  The file to be read in txt format |
-| add_custom_message * | Whether or not to add a custom message. | False |
-| message_to_add  | What message to add (if any) |
-| output_filename * | The basename to use for output file (no need to add ".txt" at the end) |
+<span style="color: red;">*</span> indicates required parameter
 
-\*  required
+- **input data**<span style="color: red;">*</span>
+    - This is a [ state what the format and content is supposed to be] file containing raw PBM data in tsv format.
+- **IUPAC**<span style="color: red;">*</span>
+    - IUPAC DNA definition of the transcription factor site 
+- **out filename**<span style="color: red;">*</span>
+    - Out file name for the annotated PBM data
+- **forward column**
+    - (1-indexed) Column of the forward DNA sequence in the pbm file.
+- **mfi column**
+    - (1-indexed) Column of the MFI in the pbm file.
+- **header seq**
+    - (True/False) s there a header sequence in the raw PBM file?
+- **IUPAC 8mers only**
+    - (True/False) Only report 8mers abiding by IUPAC in the output
+- **min normalize**
+    - (True/False) Normalize with min affinity set to 0.001
+
+
 
 ## Input Files
-<!-- longer descriptions of the module input files. Include information about format and/or preprocessing...etc -->
 
-1. filename  
-    A long form explanation of the parameter. For example: This is the file which will be read in by the python script and to which text will be added, if add_custom_message is set to true. The parameter expects a text file with a .txt extension (e.g. file.txt)
+1.  input data.  Raw PBM data in tsv format [ define format and contents in detail ] 
     
+
+
+## Creating Input Files from User Data
+
+TBD Describe how to get common data formats into the format needed here
+       
 ## Output Files
-<!-- list and describe any files output by the module -->
 
-1. \<output_filename\>.txt  
-    The input file plus any text you added, if you chose to add text.
-2. stdout.txt
-    This is standard output from the Python script. Sometimes helpful for debugging.
+  1.PBM: <output prefix>.pbm.tsv.  Tab-separated text file TBD.
+    e.g. 
+```
+seq     rel_aff
+AAAAAAAA        0.147
+AAAAAAAC        0.107
+AAAAAAAG        0.13
+AAAAAAAT        0.125
+AAAAAACA        0.123
 
+```
+    
+  
 ## Example Data
-<!-- provide links to example data so that users can see what input & output should look like and so that they and we can use it to test -->
 
-Input:  
-[data_placeholder.txt](https://github.com/genepattern/ExampleModule/blob/v2/data/data_placeholder.txt)
+[Example input data is available on github](https://github.com/genepattern/tfsites.defineTfSites/data)
+    
+## References
 
-Output:  
-[created_file_ground_truth.txt](https://github.com/genepattern/ExampleModule/blob/v2/gpunit/output/basic_test/created_file_ground_truth.txt)
-
-
-## Requirements
-<!--This section is typically used to list any special requirements for running the module, such as, language/operating system requirements and Docker images. -->
-
-Requires the [genepattern/example-module:2 Docker image](https://hub.docker.com/layers/150060459/genepattern/example-module/2/images/sha256-ae4fffff67672e46b251f954ad226b7ad99403c456c1c19911b6ac82f1a27f2f?context=explore).
-
-## License
-
-`ExampleModule` is distributed under a modified BSD license available at [https://github.com/genepattern/ExampleModule/blob/v2/LICENSE.](https://github.com/genepattern/ExampleModule/blob/v2/LICENSE)
-
+Cancer Genome Atlas Network. Comprehensive genomic characterization of head and neck squamous cell carcinomas. Nature. 2015 Jan 29;517(7536):576-82. doi: 10.1038/nature14129. PMID: 25631445; PMCID: PMC4311405.
+    
 ## Version Comments
-<!--For each version of a module, provide a short comment about what was changed in the new version of a module. Version comments consist of 3 parts: a date, a version number, and a short description. The date should be the release date of that version of the module, and the version number should match the version of the module for which it corresponds to. The description can be short, but should be informative (e.g. "added support for log transformed data", or "fixed bug with out of memory exception"). When a user views the documentation, all version comments up to and including the current version will be displayed, and act as a short version history for the module. -->
 
-| Version | Release Date | Description                                 |
-----------|--------------|---------------------------------------------|
-|  1.4  | May 17, 2021 | Added all GenePattern Team module release requirements and renamed as ExampleModule, from ABasicModule. |
-| 1 | May 1, 2018 | Initial version for team use. |
+- **1.0.0** (2023-01-12): Initial draft of document scaffold.
