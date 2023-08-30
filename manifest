@@ -1,4 +1,4 @@
-#tfsites.0.defineTfSites
+#tfsites.defineTfSites
 #Mon Aug 21 20:23:30 UTC 2023
 JVMLevel=
 LSID=urn\:lsid\:8080.gpserver.ip-172-31-26-71.ip-172-31-26-71.ec2.internal\:genepatternmodules\:706\:1
@@ -6,14 +6,14 @@ author=
 commandLine=python /build/tfsites-webportal/0-defineTfSites.py -p <input.data> -i <IUPAC> -f <forward.column> -m <mfi.column> -o   <out.filename> -H <header.seq> -r <IUPAC.8mers.only> -z <min.normalize>         
 cpuType=any
 description=\nNormalizes PBM data.\n\nhttps\://github.com/jsolvason/tfsites-webportal/blob/master/0-defineTfSites-example.sh\n\n
-documentationUrl=
+documentationUrl=https://genepattern.github.io/tfsites.defineTfSites/v1/
 fileFormat=
 job.cpuCount=
 job.docker.image=genepattern/tfsites\:0.1
 job.memory=
 job.walltime=
 language=any
-name=tfsites.0.defineTfSites
+name=tfsites.DefineTfSites
 os=any
 p1_MODE=IN
 p1_TYPE=FILE
@@ -123,6 +123,6 @@ privacy=public
 quality=development
 src.repo=
 taskDoc=
-taskType=
+taskType=Transciption factor analysis
 userid=ted
 version=Draft initial release
