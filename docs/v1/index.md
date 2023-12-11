@@ -28,12 +28,18 @@ TBD
 
 <span style="color: red;">*</span> indicates required parameter
 
+### Inputs and Outputs
+
 - **input data**<span style="color: red;">*</span>
     - This is a [ state what the format and content is supposed to be] file containing raw PBM data in tsv format.
-- **IUPAC**<span style="color: red;">*</span>
-    - IUPAC DNA definition of the transcription factor site 
 - **out filename**<span style="color: red;">*</span>
-    - Out file name for the annotated PBM data
+    - Out file name for the annotated PBM data.
+- **out graph filename**<span style="color: red;">*</span>
+    - Out file name for the graph of normalized affinities.
+      
+### Other Parameters
+- **IUPAC**<span style="color: red;">*</span>
+    - IUPAC DNA definition of the transcription factor site .
 - **forward column**
     - (1-indexed) Column of the forward DNA sequence in the pbm file.
 - **mfi column**
@@ -41,7 +47,7 @@ TBD
 - **header seq**
     - (True/False) s there a header sequence in the raw PBM file?
 - **IUPAC 8mers only**
-    - (True/False) Only report 8mers abiding by IUPAC in the output
+    - (True/False) Only report 8mers abiding by IUPAC in the output.
 - **min normalize**
     - (True/False) Normalize with min affinity set to 0.001
 
@@ -70,6 +76,7 @@ AAAAAAAT        0.125
 AAAAAACA        0.123
 
 ```
+2. PNG: Histogram plots of normalized affinities. 
     
   
 ## Example Data
