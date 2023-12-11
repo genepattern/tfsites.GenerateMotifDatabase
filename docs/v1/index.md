@@ -76,7 +76,9 @@ AAAAAAAT        0.125
 AAAAAACA        0.123
 
 ```
-2. PNG: Histogram plots of normalized affinities. 
+2. PNG: Histogram plots of normalized affinities.
+
+   <img src="./01-annotate-tf-sites.png"/>
     
   
 ## Example Data
