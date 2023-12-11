@@ -2,14 +2,14 @@
 #Mon Aug 21 20:23:30 UTC 2023
 JVMLevel=
 LSID=urn\:lsid\:8080.gpserver.ip-172-31-26-71.ip-172-31-26-71.ec2.internal\:genepatternmodules\:706\:1
-author=
-commandLine=python /build/tfsites-webportal/0-defineTfSites.py -p <input.data> -i <IUPAC> -f <forward.column> -m <mfi.column> -o   <out.filename> -H <header.seq> -r <IUPAC.8mers.only> -z <min.normalize>         
+author=Joe Solvason
+commandLine=python /build/tfsites-webportal/0-defineTfSites/0-defineTfSites.py -p <input.data> -i <IUPAC> -f <forward.column> -m <mfi.column> -o <out.filename> -g <out.graph.filename> -H <header.seq> -r <IUPAC.8mers.only> -z <min.normalize>         
 cpuType=any
 description=\nNormalizes PBM data.\n\nhttps\://github.com/jsolvason/tfsites-webportal/blob/master/0-defineTfSites-example.sh\n\n
-documentationUrl=https://genepattern.github.io/tfsites.defineTfSites/v1/
+documentationUrl=https://genepattern.github.io/tfsites.DefineTfSites/v1/
 fileFormat=
 job.cpuCount=
-job.docker.image=genepattern/tfsites\:0.1
+job.docker.image=genepattern/tfsites\:0.6
 job.memory=
 job.walltime=
 language=any
@@ -119,6 +119,22 @@ p8_prefix=
 p8_prefix_when_specified=
 p8_type=java.lang.String
 p8_value=FALSE\=FALSE;TRUE\=TRUE
+
+p9_MODE=
+p9_TYPE=TEXT
+p9_default_value=<input.data_basename>.aff-histograms.png
+p9_description=Out file name for the graph of normalized affinities.
+p9_fileFormat=
+p9_flag=
+p9_name=out.graph.filename
+p9_numValues=0..1
+p9_optional=
+p9_prefix=
+p9_prefix_when_specified=
+p9_type=java.lang.String
+p9_value=
+
+
 privacy=public
 quality=development
 src.repo=

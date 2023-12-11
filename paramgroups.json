@@ -1,17 +1,26 @@
 [
     {
-        "name": "define tfsites parameters",
+        "name": "Inputs and Outputs",
         "description": "",
         "hidden": false,
         "parameters": [
             "input.data",
+            "out.filename",
+            "out.graph.filename"
+        ]
+    },
+    {
+        "name": "Parameters",
+        "description": "",
+        "hidden": false,
+        "parameters": [
             "IUPAC",
             "forward.column",
             "mfi.column",
-            "out.filename",
             "header.seq",
             "IUPAC.8mers.only",
             "min.normalize"
         ]
     }
+
 ]

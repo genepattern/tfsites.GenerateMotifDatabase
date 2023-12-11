@@ -1,0 +1,24 @@
+# Run this gpunit localy by calling:
+# ant -f ${GPUNIT_HOME}/build.xml -Dgpunit.diffStripTrailingCR="--strip-trailing-cr" -Dgp.host="127.0.0.1" -Dgp.url="http://127.0.0.1:8080" -Dgp.user="edjuaro@gmail.com" -Dgp.password="" -Dgpunit.testfolder=`pwd` gpunit
+# OR using gp-beta-ami:
+# ant -f ${GPUNIT_HOME}/build.xml -Dgpunit.diffStripTrailingCR="--strip-trailing-cr" -Dgp.host="beta.genepattern.org" -Dgp.url="https://beta.genepattern.org" -Dgp.user="**USERNAME**" -Dgp.password="**PUT_PASSWORD_HERE" -Dgpunit.testfolder=`pwd` gpunit
+
+#
+# Note: this test uses a custom diff command
+#
+
+name: "tfsites.DefineTfsites - Basic test"
+module: tfsites.DefineTfsites
+params:
+    input.data: "data/step0-input_ets-raw-pbm-data.txt"
+    IUPAC: "NNGGAWNN"
+    forward.column: 1
+    mfi.column: 4
+    out.filename:  "0-output_ets-norm-pbm.tsv"
+    out.graph.filename: "0-output_aff-histograms.png"
+    header.seq: FALSE
+    IUPAC.8mers.only: FALSE
+    min.normalize: FALSE
+assertions:
+    jobStatus: success
+
