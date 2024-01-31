@@ -40,40 +40,42 @@ The raw PBM dataset for a transcription factor is downloaded from uniPROBE and t
 - <span style="color: red;">*</span> **Column Index of MFI (integer)**
     - Number of the column containing the MFI signal in the input PBM file (1-indexed, 1 is the first column)
 - <span style="color: red;">*</span> **Header Present (boolean)**
-    - If True, a header exists in the PBM data file. If False, no header exists.
+    - If `True`, a header exists in the PBM data file. If `False`, no header exists.
 - **Report IUPAC K-mers Only (boolean)**
-    - default = False
-    - If True, only report k-mers abiding by the IUPAC definition. If False, report all k-mers.
+    - `default = False`
+    - If `True`, only report k-mers abiding by the IUPAC definition. If `False`, report all k-mers.
 - **Set Minimum Normalization (boolean)**
-    - default = False
-    - If True, normalize the data so the minimum affinity value is set to 0.001. The normalized affinity values will range between 0.001 and 1.0. If False, the values will range between 0 and 1.0.
+    - `default = False`
+    - If `True`, normalize the data so the minimum affinity value is set to 0.001. The normalized affinity values will range between 0.001 and 1.0. If `False`, the values will range between 0 and 1.0.
 - **Max Kmer to Normalize (string)**
-    - default = None
+    - `default = None`
     - The k-mer sequence whose MFI will be used to normalize the MFI values of all other k-mers. The relative affinity for this k-mer will be 1.0. 
 
 ## Warnings Printed:
 
-If there exists another k-mer that conforms to the IUPAC definition and has a higher MFI than one provided by the user as the Max K-mer to Normalize.
-If there are any k-mers that do not conform to the IUPAC definition but have a MFI greater than the k-mer provided by the user.The affinities of all non-IUPAC kmers with a higher MFI will be capped at 1.0.
+1. If there exists another k-mer that conforms to the IUPAC definition and has a higher MFI than one provided by the user as the **Max K-mer to Normalize**.
+2. If there are any k-mers that do not conform to the IUPAC definition but have a MFI greater than the k-mer provided by the user. The affinities of all non-IUPAC kmers with a higher MFI will be capped at 1.0.
 
 ## Input Files
 
 1.  Raw PBM Input (.tsv)
     - Columns
-        - 8-mer: every possible forward k-mer sequence with length k
-        - 8-mer: the reverse complement of the forward k-mer
-        - E-score: the enrichment score of the k-mer
-        - Median: the median fluorescence intensity of the k-mer
-        - Z-score: the z-score of the k-mer
-    
+        - `8-mer:` every possible forward k-mer sequence with length k
+        - `8-mer:` the reverse complement of the forward k-mer
+        - `E-score:` the enrichment score of the k-mer
+        - `Median:` the median fluorescence intensity of the k-mer
+        - `Z-score:` the z-score of the k-mer
+
+   <img src="./01-input.png"/>
        
 ## Output Files
 
 1. Normalized PBM data (.tsv)
    - Columns
-       - Seq: the sequence of every possible k-mer
-       - Rel_aff: the relative affinity of the k-mer normalized to the max IUPAC k-mer
+       - `Seq:` the sequence of every possible k-mer
+       - `Rel_aff:` the relative affinity of the k-mer normalized to the max IUPAC k-mer
 
+   <img src="./01-normoutput.png"/>
 
 2. Histograms of Relative Affinities (.png) 
     - Histogram plots
@@ -81,7 +83,7 @@ If there are any k-mers that do not conform to the IUPAC definition but have a M
         - Affinity values for the sequences that follow the IUPAC minimal binding site
         - Affinity values for the sequences that don't follow the IUPAC minimal binding site
 
-   <img src="./01-annotate-tf-sites.png"/>
+   <img src="./01-output_aff-histograms.png"/>
     
   
 ## Example Data
