@@ -13,16 +13,11 @@
 
 ## Introduction
 
-tfsites.DefineTfSites normalizes PBM data.
-
-
-## Functionality
-
-TBD
+defineTfSites normalizes the median fluorescence intensity (MFI) values in a raw protein-binding microarray (PBM) data file for a transcription factor of interest. The k-mer with the maximum MFI that conforms to the IUPAC definition of a binding site is normalized to 1.0 and all other k-mers are normalized relative to that MFI value. For example, a normalized value of 0.1 is 10% of the maximum MFI. 
 
 ## Methodology
 
-TBD
+The raw PBM dataset for a transcription factor is downloaded from uniPROBE and the user indicates the columns of the forward k-mer and the MFI. The user defines the minimal binding site using IUPAC nomenclature (ie, N = ATGC, W = AT, etc). The tool searches for the k-mer with the largest MFI signal that conforms to the minimal IUPAC binding site. For all other k-mers, the MFI signal will be normalized relative to the MFI signal of the maximum k-mer and the resulting value is called the relative affinity. Therefore, the k-mer with the maximum MFI signal will have a relative affinity of 1.0. The normalization calculation for each k-mer is: relative affinity = (MFI signal) / (MFI signal of the maximum IUPAC k-mer). 
 
 ## Parameters
 
@@ -30,53 +25,61 @@ TBD
 
 ### Inputs and Outputs
 
-- **input data**<span style="color: red;">*</span>
-    - This is a [ state what the format and content is supposed to be] file containing raw PBM data in tsv format.
-- **out filename**<span style="color: red;">*</span>
-    - Out file name for the annotated PBM data.
-- **out graph filename**<span style="color: red;">*</span>
-    - Out file name for the graph of normalized affinities.
+- <span style="color: red;">*</span> **Raw PBM Input (.tsv)** 
+    - Input file containing the raw PBM dataset. This file is the output of a protein-binding microarray experiment obtained from uniPROBE. 
+- <span style="color: red;">*</span> **Relative Affinity Output (.tsv)**
+    - Name of the output file containing the normalized PBM data. 
+- <span style="color: red;">*</span> **Histograms of Relative Affinities (.png)** 
+    - Name of the output graph containing 3 histogram plots of the normalized affinity values.
       
 ### Other Parameters
-- **IUPAC**<span style="color: red;">*</span>
-    - IUPAC DNA definition of the transcription factor site .
-- **forward column**
-    - (1-indexed) Column of the forward DNA sequence in the pbm file.
-- **mfi column**
-    - (1-indexed) Column of the MFI in the pbm file.
-- **header seq**
-    - (True/False) s there a header sequence in the raw PBM file?
-- **IUPAC 8mers only**
-    - (True/False) Only report 8mers abiding by IUPAC in the output.
-- **min normalize**
-    - (True/False) Normalize with min affinity set to 0.001
+- <span style="color: red;">*</span> **IUPAC Definition (string)**
+    - IUPAC definition of the core transcription factor binding site (see [here](https://www.bioinformatics.org/sms/iupac.html)). The length of the IUPAC definition should be the same length k as the k-mers in the raw PBM file.
+- <span style="color: red;">*</span> **Column Index of DNA K-mers (integer)**
+    - Number of the column containing the forward DNA sequence in the input PBM file (1-indexed, 1 is the first column)
+- <span style="color: red;">*</span> **Column Index of MFI (integer)**
+    - Number of the column containing the MFI signal in the input PBM file (1-indexed, 1 is the first column)
+- <span style="color: red;">*</span> **Header Present (boolean)**
+    - If True, a header exists in the PBM data file. If False, no header exists.
+- **Report IUPAC K-mers Only (boolean)**
+    - default = False
+    - If True, only report k-mers abiding by the IUPAC definition. If False, report all k-mers.
+- **Set Minimum Normalization (boolean)**
+    - default = False
+    - If True, normalize the data so the minimum affinity value is set to 0.001. The normalized affinity values will range between 0.001 and 1.0. If False, the values will range between 0 and 1.0.
+- **Max Kmer to Normalize (string)**
+    - default = None
+    - The k-mer sequence whose MFI will be used to normalize the MFI values of all other k-mers. The relative affinity for this k-mer will be 1.0. 
 
+## Warnings Printed:
 
+If there exists another k-mer that conforms to the IUPAC definition and has a higher MFI than one provided by the user as the Max K-mer to Normalize.
+If there are any k-mers that do not conform to the IUPAC definition but have a MFI greater than the k-mer provided by the user.The affinities of all non-IUPAC kmers with a higher MFI will be capped at 1.0.
 
 ## Input Files
 
-1.  input data.  Raw PBM data in tsv format [ define format and contents in detail ] 
+1.  Raw PBM Input (.tsv)
+    - Columns
+        - 8-mer: every possible forward k-mer sequence with length k
+        - 8-mer: the reverse complement of the forward k-mer
+        - E-score: the enrichment score of the k-mer
+        - Median: the median fluorescence intensity of the k-mer
+        - Z-score: the z-score of the k-mer
     
-
-
-## Creating Input Files from User Data
-
-TBD Describe how to get common data formats into the format needed here
        
 ## Output Files
 
-  1.PBM: <output prefix>.pbm.tsv.  Tab-separated text file TBD.
-    e.g. 
-```
-seq     rel_aff
-AAAAAAAA        0.147
-AAAAAAAC        0.107
-AAAAAAAG        0.13
-AAAAAAAT        0.125
-AAAAAACA        0.123
+1. Normalized PBM data (.tsv)
+   - Columns
+       - Seq: the sequence of every possible k-mer
+       - Rel_aff: the relative affinity of the k-mer normalized to the max IUPAC k-mer
 
-```
-2. PNG: Histogram plots of normalized affinities.
+
+2. Histograms of Relative Affinities (.png) 
+    - Histogram plots
+        - All relative affinity values
+        - Affinity values for the sequences that follow the IUPAC minimal binding site
+        - Affinity values for the sequences that don't follow the IUPAC minimal binding site
 
    <img src="./01-annotate-tf-sites.png"/>
     
@@ -85,9 +88,6 @@ AAAAAACA        0.123
 
 [Example input data is available on github](https://github.com/genepattern/tfsites.defineTfSites/data)
     
-## References
-
-Cancer Genome Atlas Network. Comprehensive genomic characterization of head and neck squamous cell carcinomas. Nature. 2015 Jan 29;517(7536):576-82. doi: 10.1038/nature14129. PMID: 25631445; PMCID: PMC4311405.
     
 ## Version Comments
 
