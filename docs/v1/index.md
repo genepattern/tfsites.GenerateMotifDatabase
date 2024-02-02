@@ -17,7 +17,7 @@
 
 ## Methodology
 
-The raw PBM dataset for a transcription factor is downloaded from uniPROBE and the user indicates the columns of the forward k-mer and the MFI. The user defines the minimal binding site using IUPAC nomenclature (ie, N = ATGC, W = AT, etc). The tool searches for the k-mer with the largest MFI signal that conforms to the minimal IUPAC binding site. For all other k-mers, the MFI signal will be normalized relative to the MFI signal of the maximum k-mer and the resulting value is called the relative affinity. Therefore, the k-mer with the maximum MFI signal will have a relative affinity of 1.0. The normalization calculation for each k-mer is: relative affinity = (MFI signal) / (MFI signal of the maximum IUPAC k-mer). 
+The raw PBM dataset for a transcription factor is downloaded from [uniPROBE](http://the_brain.bwh.harvard.edu/uniprobe/) and the user indicates the columns of the forward k-mer and the MFI. The user defines the minimal binding site using IUPAC nomenclature (ie, N = ATGC, W = AT, [etc](https://genome.ucsc.edu/goldenPath/help/iupac.html)). The tool searches for the k-mer with the largest MFI signal that conforms to the minimal IUPAC binding site. For all other k-mers, the MFI signal will be normalized relative to the MFI signal of the maximum k-mer and the resulting value is called the relative affinity. Therefore, the k-mer with the maximum MFI signal will have a relative affinity of 1.0. The normalization calculation for each k-mer is: relative affinity = (MFI signal) / (MFI signal of the maximum IUPAC k-mer). 
 
 ## Parameters
 
@@ -59,36 +59,50 @@ The raw PBM dataset for a transcription factor is downloaded from uniPROBE and t
 ## Input Files
 
 1.  Raw PBM Input (.tsv)
-    - Columns
-        - `8-mer:` every possible forward k-mer sequence with length k
-        - `8-mer:` the reverse complement of the forward k-mer
-        - `E-score:` the enrichment score of the k-mer
-        - `Median:` the median fluorescence intensity of the k-mer
-        - `Z-score:` the z-score of the k-mer
+- Columns
+  - `8-mer:` every possible forward k-mer sequence with length k
+  - `8-mer:` the reverse complement of the forward k-mer
+  - `E-score:` the enrichment score of the k-mer
+  - `Median:` the median fluorescence intensity of the k-mer
+  - `Z-score:` the z-score of the k-mer
 
-   <img src="./01-input.png"/>
+```
+8-mer        8-mer        E-score     Median      Z-score
+AAAAAAAA     TTTTTTTT     0.29130     2871.60     3.5965
+AAAAAAAC     TTTTTTTG     0.10748     2086.00     0.3958
+AAAAAAAG     TTTTTTTC     0.23656     2539.91     2.3673
+AAAAAAAT     TTTTTTTA     0.21760     2434.82     1.9442
+AAAAAACA     TTTTTTGT     0.19839     2407.46     1.8310
+```
        
 ## Output Files
 
 1. Normalized PBM data (.tsv)
-   - Columns
-       - `Seq:` the sequence of every possible k-mer
-       - `Rel_aff:` the relative affinity of the k-mer normalized to the max IUPAC k-mer
+- Columns
+  - `Seq:` the sequence of every possible k-mer
+  - `Rel_aff:` the relative affinity of the k-mer normalized to the max IUPAC k-mer
 
-   <img src="./01-normoutput.png"/>
+```
+seq          rel_aff
+AAAAAAAA     0.147
+AAAAAAAC     0.107
+AAAAAAAG     0.13
+AAAAAAAT     0.125
+AAAAAACA     0.123
+```
 
 2. Histograms of Relative Affinities (.png) 
-    - Histogram plots
-        - All relative affinity values
-        - Affinity values for the sequences that follow the IUPAC minimal binding site
-        - Affinity values for the sequences that don't follow the IUPAC minimal binding site
+- Histogram plots
+  - All relative affinity values
+  - Affinity values for the sequences that follow the IUPAC minimal binding site
+  - Affinity values for the sequences that don't follow the IUPAC minimal binding site
 
    <img src="./01-output_aff-histograms.png"/>
     
   
 ## Example Data
 
-[Example input data is available on github](https://github.com/genepattern/tfsites.defineTfSites/data)
+[Example input data is available on github](https://github.com/genepattern/tfsites.DefineTfSites/data)
     
     
 ## Version Comments
