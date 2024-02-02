@@ -1,6 +1,6 @@
 # tfsites.DefineTfSites v1
 
-**Author(s):** Joe Solvason  
+**Author(s):** Joe Solvason
 
 **Contact:** Joe Solvason (solvason@eng.ucsd.edu)
 
@@ -13,7 +13,7 @@
 
 ## Introduction
 
-defineTfSites normalizes the median fluorescence intensity (MFI) values in a raw protein-binding microarray (PBM) data file for a transcription factor of interest. The k-mer with the maximum MFI that conforms to the IUPAC definition of a binding site is normalized to 1.0 and all other k-mers are normalized relative to that MFI value. For example, a normalized value of 0.1 is 10% of the maximum MFI. 
+`defineTfSites` normalizes the median fluorescence intensity (MFI) values in a raw protein-binding microarray (PBM) data file for a transcription factor of interest. The k-mer with the maximum MFI that conforms to the IUPAC definition of a binding site is normalized to 1.0 and all other k-mers are normalized relative to that MFI value. For example, a normalized value of 0.1 is 10% of the maximum MFI. 
 
 ## Methodology
 
@@ -27,19 +27,19 @@ The raw PBM dataset for a transcription factor is downloaded from uniPROBE and t
 
 - <span style="color: red;">*</span> **Raw PBM Input (.tsv)** 
     - Input file containing the raw PBM dataset. This file is the output of a protein-binding microarray experiment obtained from uniPROBE. 
-- <span style="color: red;">*</span> **Relative Affinity Output (.tsv)**
+- <span style="color: red;">*</span>**Relative Affinity Output (.tsv)**
     - Name of the output file containing the normalized PBM data. 
-- <span style="color: red;">*</span> **Histograms of Relative Affinities (.png)** 
+- <span style="color: red;">*</span>**Histograms of Relative Affinities (.png)** 
     - Name of the output graph containing 3 histogram plots of the normalized affinity values.
       
 ### Other Parameters
-- <span style="color: red;">*</span> **IUPAC Definition (string)**
+- <span style="color: red;">*</span>**IUPAC Definition (string)**
     - IUPAC definition of the core transcription factor binding site (see [here](https://www.bioinformatics.org/sms/iupac.html)). The length of the IUPAC definition should be the same length k as the k-mers in the raw PBM file.
-- <span style="color: red;">*</span> **Column Index of DNA K-mers (integer)**
+- <span style="color: red;">*</span>**Column Index of DNA K-mers (integer)**
     - Number of the column containing the forward DNA sequence in the input PBM file (1-indexed, 1 is the first column)
-- <span style="color: red;">*</span> **Column Index of MFI (integer)**
+- <span style="color: red;">*</span>**Column Index of MFI (integer)**
     - Number of the column containing the MFI signal in the input PBM file (1-indexed, 1 is the first column)
-- <span style="color: red;">*</span> **Header Present (boolean)**
+- <span style="color: red;">*</span>**Header Present (boolean)**
     - If `True`, a header exists in the PBM data file. If `False`, no header exists.
 - **Report IUPAC K-mers Only (boolean)**
     - `default = False`
@@ -94,3 +94,4 @@ The raw PBM dataset for a transcription factor is downloaded from uniPROBE and t
 ## Version Comments
 
 - **1.0.0** (2023-01-12): Initial draft of document scaffold.
+- **1.0.1** (2024-02-02): Draft completed.
