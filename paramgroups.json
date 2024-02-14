@@ -4,22 +4,23 @@
         "description": "",
         "hidden": false,
         "parameters": [
-            "input.data",
-            "out.filename",
-            "out.graph.filename"
+            "raw.PBM.input",
+            "relative.affinity.output.filename",
+            "histograms.of.relative.affinity.filename"
         ]
     },
     {
-        "name": "Parameters",
+        "name": "Other Parameters",
         "description": "",
         "hidden": false,
         "parameters": [
-            "IUPAC",
-            "forward.column",
-            "mfi.column",
-            "header.seq",
-            "IUPAC.8mers.only",
-            "min.normalize"
+            "IUPAC.definition",
+            "column.index.of.DNA.kmers",
+            "column.index.of.mfi",
+            "header.present",
+            "report.IUPAC.k-mers.only",
+            "set.minimum.normalization",
+            "max.k-mer.to.normalize"
         ]
     }
 
