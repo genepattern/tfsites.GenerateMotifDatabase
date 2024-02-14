@@ -36,9 +36,9 @@ The raw PBM dataset for a transcription factor is downloaded from [uniPROBE](htt
 - <span style="color: red;">*</span>**IUPAC Definition (string)**
     - IUPAC definition of the core transcription factor binding site (see [here](https://www.bioinformatics.org/sms/iupac.html)). The length of the IUPAC definition should be the same length k as the k-mers in the raw PBM file.
 - <span style="color: red;">*</span>**Column Index of DNA K-mers (integer)**
-    - Number of the column containing the forward DNA sequence in the input PBM file (1-indexed, 1 is the first column)
+    - Number of the column containing the forward DNA sequence in the input PBM file (1-indexed, 1 is the first column).
 - <span style="color: red;">*</span>**Column Index of MFI (integer)**
-    - Number of the column containing the MFI signal in the input PBM file (1-indexed, 1 is the first column)
+    - Number of the column containing the MFI signal in the input PBM file (1-indexed, 1 is the first column).
 - <span style="color: red;">*</span>**Header Present (boolean)**
     - If `True`, a header exists in the PBM data file. If `False`, no header exists.
 - **Report IUPAC K-mers Only (boolean)**
