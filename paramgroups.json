@@ -15,8 +15,8 @@
         "hidden": false,
         "parameters": [
             "IUPAC.definition",
-            "column.index.of.DNA.kmers",
-            "column.index.of.mfi",
+            "column.index.of.DNA.k-mers",
+            "column.index.of.MFI",
             "header.present",
             "report.IUPAC.k-mers.only",
             "set.minimum.normalization",
