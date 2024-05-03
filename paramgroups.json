@@ -4,9 +4,9 @@
         "description": "",
         "hidden": false,
         "parameters": [
-            "raw.PBM.input",
-            "relative.affinity.output.filename",
-            "histograms.of.relative.affinity.filename"
+            "raw.PBM.data",
+            "reference.relative.affinity.table.output.filename",
+            "histograms.of.relative.affinity.output.filename"
         ]
     },
     {
@@ -14,13 +14,13 @@
         "description": "",
         "hidden": false,
         "parameters": [
-            "IUPAC.definition",
-            "column.index.of.DNA.k-mers",
-            "column.index.of.MFI",
+            "binding.site.definition",
+            "column.of.PBM.k-mers",
+            "column.of.PBM.MFI",
             "header.present",
-            "report.IUPAC.k-mers.only",
-            "set.minimum.normalization",
-            "max.k-mer.to.normalize"
+            "report.sites.only",
+            "enforce.minimum.relative.affinity",
+            "define.highest.relative.affinity.sequence"
         ]
     }
 

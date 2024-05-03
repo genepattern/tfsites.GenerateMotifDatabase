@@ -10,15 +10,15 @@
 name: "tfsites.DefineTfsites - Basic test"
 module: tfsites.DefineTfsites
 params:
-    raw.PBM.input: "data/step0-input_ets-raw-pbm-data.txt"
-    IUPAC.definition: "NNGGAWNN"
-    column.index.of.DNA.k-mers: 1
-    column.index.of.MFI: 4
-    relative.affinity.output.filename:  "0-output_ets-norm-pbm.tsv"
-    histograms.of.relative.affinity.filename: "0-output_aff-histograms.png"
+    raw.PBM.data: "data/step0-input_ets-raw-pbm-data.txt"
+    binding.site.definition: "NNGGAWNN"
+    column.of.PBM.k-mers: 1
+    column.of.PBM.MFI: 4
+    reference.relative.affinity.table.output.filename:  "0-output_ets-norm-pbm.tsv"
+    histograms.of.relative.affinity.output.filename: "0-output_aff-histograms.png"
     header.present: FALSE
-    report.IUPAC.k-mers.only: FALSE
-    set.minimum.normalization: FALSE
+    report.sites.only: FALSE
+    enforce.minimum.relative.affinity: FALSE
 assertions:
     jobStatus: success
 
