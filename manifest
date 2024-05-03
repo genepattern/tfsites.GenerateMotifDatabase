@@ -3,7 +3,7 @@
 JVMLevel=
 LSID=urn\:lsid\:8080.gpserver.ip-172-31-26-71.ip-172-31-26-71.ec2.internal\:genepatternmodules\:706\:1
 author=Joe Solvason
-commandLine=python /build/tfsites-webportal/0-defineTfSites/0-defineTfSitesPBM.py -r <raw.PBM.data> -b <binding.site.definition> -k <column.of.PBM.k-mers> -m <column.of.PBM.MFI> -t <reference.relative.affinity.table.output.filename> -i <histograms.of.relative.affinity.output.filename> -p <header.present> -s <report.sites.only> -e <enforce.minimum.relative.affinity> <define.highest.relative.affinity.sequence>         
+commandLine=python /build/tfsites-webportal/01-defineTfSitesPBM/01-defineTfSitesPBM.py -r <raw.PBM.data> -b <binding.site.definition> -k <column.of.PBM.k-mers> -m <column.of.PBM.MFI> -t <reference.relative.affinity.table.output.filename> -i <histograms.of.relative.affinity.output.filename> -p <header.present> -s <report.sites.only> -e <enforce.minimum.relative.affinity> <define.highest.relative.affinity.sequence>         
 cpuType=any
 description=Normalizes the median fluorescence intensity (MFI) values in a raw protein-binding microarray (PBM) data file for a transcription factor of interest. The k-mer with the maximum MFI that conforms to the IUPAC definition of a binding site is normalized to 1.0 and all other k-mers are normalized relative to that MFI value. 
 documentationUrl=https://genepattern.github.io/tfsites.DefineTfSites/v1/
@@ -71,7 +71,7 @@ p4_value=
 
 p5_MODE=
 p5_TYPE=TEXT
-p5_default_value=<raw.PBM.input_basename>.norm.pbm.tsv
+p5_default_value=<raw.PBM.data_basename>.norm.pbm.tsv
 p5_description=Name of the output file containing the normalized PBM data.
 p5_fileFormat=tsv
 p5_flag=
@@ -127,7 +127,7 @@ p8_value=FALSE\=FALSE;TRUE\=TRUE
 
 p9_MODE=
 p9_TYPE=TEXT
-p9_default_value=<raw.PBM.input_basename>.aff-histograms.png
+p9_default_value=<raw.PBM.data_basename>.aff-histograms.png
 p9_description=Name of the output graph containing 3 histogram plots of the normalized affinity values.
 p9_fileFormat=
 p9_flag=
