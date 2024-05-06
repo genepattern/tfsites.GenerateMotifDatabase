@@ -1,5 +1,5 @@
 
-# tfsites.defineTfSites Genepattern module docs pages root
+# tfsites.defineTFBindingSitesFromTFM Genepattern module docs pages root
 
 [v1 initial revision](v1/index.md)
 
