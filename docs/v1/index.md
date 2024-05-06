@@ -1,4 +1,4 @@
-# tfsites.DefineTfSites v1
+# tfsites.DefineTFbindingSites.from.PFM v1
 
 **Author(s):** Joe Solvason
 
@@ -8,12 +8,12 @@
 
 **Task Type:** Transciption factor analysis
 
-**LSID:**  urn:lsid:genepattern.org:module.analysis:00441
+**LSID:**  urn:lsid:genepattern.org:module.analysis:00459
 
 
 ## Introduction
 
-`defineTfSites` normalizes the median fluorescence intensity (MFI) values in a raw protein-binding microarray (PBM) data file for a transcription factor of interest. The k-mer with the maximum MFI that conforms to the IUPAC definition of a binding site is normalized to 1.0 and all other k-mers are normalized relative to that MFI value. For example, a normalized value of 0.1 is 10% of the maximum MFI. 
+`defineTFBindingSites.from.PFM` normalizes the median fluorescence intensity (MFI) values in a Position Frequency Matrix(PFM) from JASPAR data file for a transcription factor of interest. The k-mer with the maximum MFI that conforms to the IUPAC definition of a binding site is normalized to 1.0 and all other k-mers are normalized relative to that MFI value. For example, a normalized value of 0.1 is 10% of the maximum MFI. 
 
 ## Methodology
 
@@ -25,29 +25,31 @@ The raw PBM dataset for a transcription factor is downloaded from [uniPROBE](htt
 
 ### Inputs and Outputs
 
-- <span style="color: red;">*</span> **Raw PBM Input (.tsv)** 
-    - Input file containing the raw PBM dataset. This file is the output of a protein-binding microarray experiment obtained from uniPROBE. 
-- <span style="color: red;">*</span>**Relative Affinity Output (.tsv)**
+- <span style="color: red;">*</span> **Raw JASPAR PFM (.tsv)** 
+    -Position Frequency Matrix from JASPAR. 
+- <span style="color: red;">*</span>**Reference Relative Score Output filename (.tsv)**
     - Name of the output file containing the normalized PBM data. 
-- <span style="color: red;">*</span>**Histograms of Relative Affinities (.png)** 
+- <span style="color: red;">*</span>**Histograms of Relative Scores (.png)** 
     - Name of the output graph containing 3 histogram plots of the normalized affinity values.
       
 ### Other Parameters
-- <span style="color: red;">*</span>**IUPAC Definition (string)**
-    - IUPAC definition of the core transcription factor binding site (see [here](https://www.bioinformatics.org/sms/iupac.html)). The length of the IUPAC definition should be the same length k as the k-mers in the raw PBM file.
-- <span style="color: red;">*</span>**Column Index of DNA K-mers (integer)**
-    - Number of the column containing the forward DNA sequence in the input PBM file (1-indexed, 1 is the first column).
-- <span style="color: red;">*</span>**Column Index of MFI (integer)**
-    - Number of the column containing the MFI signal in the input PBM file (1-indexed, 1 is the first column).
-- <span style="color: red;">*</span>**Header Present (boolean)**
-    - If `True`, a header exists in the PBM data file. If `False`, no header exists.
-- **Report IUPAC K-mers Only (boolean)**
+- <span style="color: red;">*</span>**Binding Site Definition (string)**
+    - Normalize relative PWM scores by the k-mer with the highest score that follows the IUPAC definition of the core binding site for a transcription factor (see [here](https://www.bioinformatics.org/sms/iupac.html)). 
+
+- <span style="color: red;">*</span>**Background Frequency of A,C,G,T (comma-separated string)**
+    - Default = [0.25, 0.25, 0.25, 0.25]
+Frequencies defining the background model, containing the probability that each nucleotide is randomly generated. 
+
+- <span style="color: red;">*</span>**Pseudocount Values (comma-separated string)**
+    - Default = None
+    - Increase each value in the matrix by a certain value to avoid null values.
+- **Report Sites Only (boolean)**
     - `default = False`
     - If `True`, only report k-mers abiding by the IUPAC definition. If `False`, report all k-mers.
-- **Set Minimum Normalization (boolean)**
+- **Enforce Minimum Relative Affinity (boolean)**
     - `default = False`
     - If `True`, normalize the data so the minimum affinity value is set to 0.001. The normalized affinity values will range between 0.001 and 1.0. If `False`, the values will range between 0 and 1.0.
-- **Max Kmer to Normalize (string)**
+- **Define Highest Relative Affinity Sequence (string)**
     - `default = None`
     - The k-mer sequence whose MFI will be used to normalize the MFI values of all other k-mers. The relative affinity for this k-mer will be 1.0. 
 
@@ -58,8 +60,8 @@ The raw PBM dataset for a transcription factor is downloaded from [uniPROBE](htt
 
 ## Input Files
 
-1.  Raw PBM Input (.tsv)
-- Columns
+1.  JASPAR PFM Input (.tsv)
+- Columns **THIS NEEDS UPDATING -- BELOW IS PBM DEFINITION**
   - `8-mer:` every possible forward k-mer sequence with length k
   - `8-mer:` the reverse complement of the forward k-mer
   - `E-score:` the enrichment score of the k-mer
