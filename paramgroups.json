@@ -4,9 +4,9 @@
         "description": "",
         "hidden": false,
         "parameters": [
-            "raw.PBM.data",
-            "reference.relative.affinity.table.output.filename",
-            "histograms.of.relative.affinity.output.filename"
+            "raw.JASPAR.PFM",
+            "reference.relative.score.table.output.filename",
+            "histograms.of.relative.scores.output.filename"
         ]
     },
     {
@@ -15,9 +15,8 @@
         "hidden": false,
         "parameters": [
             "binding.site.definition",
-            "column.of.PBM.k-mers",
-            "column.of.PBM.MFI",
-            "header.present",
+            "background.frequency.of.A,C,G,T",
+            "pseudocount.values",
             "report.sites.only",
             "enforce.minimum.relative.affinity",
             "define.highest.relative.affinity.sequence"

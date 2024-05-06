@@ -7,16 +7,15 @@
 # Note: this test uses a custom diff command
 #
 
-name: "tfsites.DefineTfsites - Basic test"
-module: tfsites.DefineTfsites
+name: "tfsites.DefineTfSites.from.PFM - Basic test"
+module: tfsites.DefineTFBindingSites.from.PFM
 params:
-    raw.PBM.data: "data/step0-input_ets-raw-pbm-data.txt"
+    raw.JASPAR.PFM: "data/"02-input_ets_raw_pfm_data.jaspar
     binding.site.definition: "NNGGAWNN"
-    column.of.PBM.k-mers: 1
-    column.of.PBM.MFI: 4
+    background.frequency.of.A,C,G,T:  0.25,0.25,0.25,0.25 
+    pseudocount.values: 1,1,1,1
     reference.relative.affinity.table.output.filename:  "0-output_ets-norm-pbm.tsv"
     histograms.of.relative.affinity.output.filename: "0-output_aff-histograms.png"
-    header.present: FALSE
     report.sites.only: FALSE
     enforce.minimum.relative.affinity: FALSE
 assertions:
