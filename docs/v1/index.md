@@ -25,31 +25,31 @@ The raw PBM dataset for a transcription factor is downloaded from [uniPROBE](htt
 
 ### Inputs and Outputs
 
-- <span style="color: red;">*</span> **Raw JASPAR PFM (.tsv)** 
+- <span style="color: red;">*</span> **raw JASPAR PFM (.tsv)** 
     -Position Frequency Matrix from JASPAR. 
-- <span style="color: red;">*</span>**Reference Relative Score Output filename (.tsv)**
+- <span style="color: red;">*</span>**reference relative score tableoutput filename (.tsv)**
     - Name of the output file containing the normalized PBM data. 
-- <span style="color: red;">*</span>**Histograms of Relative Scores (.png)** 
+- <span style="color: red;">*</span>**histograms of relative scores output filename (.png)** 
     - Name of the output graph containing 3 histogram plots of the normalized affinity values.
       
 ### Other Parameters
-- <span style="color: red;">*</span>**Binding Site Definition (string)**
+- <span style="color: red;">*</span>**binding site definition (string)**
     - Normalize relative PWM scores by the k-mer with the highest score that follows the IUPAC definition of the core binding site for a transcription factor (see [here](https://www.bioinformatics.org/sms/iupac.html)). 
 
-- <span style="color: red;">*</span>**Background Frequency of A,C,G,T (comma-separated string)**
+- <span style="color: red;">*</span>**background frequency of A,C,G,T (comma-separated string)**
     - Default = [0.25, 0.25, 0.25, 0.25]
 Frequencies defining the background model, containing the probability that each nucleotide is randomly generated. 
 
-- <span style="color: red;">*</span>**Pseudocount Values (comma-separated string)**
+- <span style="color: red;">*</span>**pseudocount values (comma-separated string)**
     - Default = None
     - Increase each value in the matrix by a certain value to avoid null values.
-- **Report Sites Only (boolean)**
+- **report sites only (boolean)**
     - `default = False`
     - If `True`, only report k-mers abiding by the IUPAC definition. If `False`, report all k-mers.
-- **Enforce Minimum Relative Affinity (boolean)**
+- **enforce minimum relative affinity (boolean)**
     - `default = False`
     - If `True`, normalize the data so the minimum affinity value is set to 0.001. The normalized affinity values will range between 0.001 and 1.0. If `False`, the values will range between 0 and 1.0.
-- **Define Highest Relative Affinity Sequence (string)**
+- **define highest relative affinity aequence (string)**
     - `default = None`
     - The k-mer sequence whose MFI will be used to normalize the MFI values of all other k-mers. The relative affinity for this k-mer will be 1.0. 
 
