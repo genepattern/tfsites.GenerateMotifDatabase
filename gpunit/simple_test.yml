@@ -10,7 +10,7 @@
 name: "tfsites.DefineTfSites.from.PFM - Basic test"
 module: tfsites.DefineTFBindingSites.from.PFM
 params:
-    raw.JASPAR.PFM: "data/"02-input_ets_raw_pfm_data.jaspar
+    raw.JASPAR.PFM: "data/02-input_ets_raw_pfm_data.jaspar"
     binding.site.definition: "NNGGAWNN"
     background.frequency.of.A,C,G,T:  0.25,0.25,0.25,0.25 
     pseudocount.values: 1,1,1,1
