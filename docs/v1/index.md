@@ -29,7 +29,7 @@ Lastly, the scores must be normalized. The user defines the minimal binding site
 
 ### Inputs and Outputs
 
-- <span style="color: red;">*</span> **raw JASPAR PFM (.tsv)** 
+- <span style="color: red;">*</span> **raw JASPAR PFM (.jaspar)** 
     - Position Frequency Matrix from JASPAR. 
 - <span style="color: red;">*</span>**reference relative score table output filename (.tsv)**
     - Name of the output file containing the normalized PFM data. 
@@ -40,7 +40,7 @@ Lastly, the scores must be normalized. The user defines the minimal binding site
 - <span style="color: red;">*</span>**binding site definition (string)**
     - IUPAC definition of the core transcription factor binding site (see [here](https://www.bioinformatics.org/sms/iupac.html)). The length of the binding site definition should be the same as the length of the input PFM. 
 - **background frequency of A,C,G,T (comma-separated string)**
-    - `Default = [0.25, 0.25, 0.25, 0.25]`
+    - `Default = 0.25,0.25,0.25,0.25`
     - Frequencies defining the background model, which contains the probability of each nucleotide being randomly generated. 
 - **pseudocount values (comma-separated string)**
     - `Default = auto`
@@ -62,7 +62,7 @@ Lastly, the scores must be normalized. The user defines the minimal binding site
 
 ## Input Files
 
-1.  raw JASPAR PFM (.tsv)
+1.  raw JASPAR PFM (.jaspar)
 - Contains one header line followed by the raw PFM 
 ```
 >MA0098.3	ETS1
