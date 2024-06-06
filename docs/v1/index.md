@@ -17,7 +17,7 @@
 
 ## Methodology
 
-The raw PFM dataset for a transcription factor is downloaded from [JASPAR](https://jaspar.elixir.no/) and converted to a Position Weight Matrix (PWM). The first step in this conversion is optionally adding pseucdocounts to each value in the matrix. Then, the sum of all values in the matrix is taken and divided by the number of columns to obtain the average sum of a column in the matrix. Each value in the matrix is divided by the average sum of a column in the matrix. Finally, the following calculation is performed for each value in the matrix: log2(value / background frequency of the nucleotide), and this gives us the PWM.
+The raw PFM dataset for a transcription factor is downloaded from [JASPAR](https://jaspar.elixir.no/) and converted to a Position Weight Matrix (PWM). The first step in this conversion is optionally adding pseudocounts to each value in the matrix. If the user does not provide any pseudocounts, then it is automatically calculated. To calculate the pseudocounts for each nucleotide, the sum of all values in the matrix is taken and divided by the number of columns to obtain the average sum of a column in the matrix. Then, this value is used in the following calculation default: (square root of the average sum of a column) * (background frequency of the nucleotide). The resulting pseudocount values can be added to each value in the matrix. If pseudocount values are provided by the user, those values will instead be added to each value in the matrix. Next, each value in the matrix is divided by the value of the average sum of a column in the matrix (previously calculated above for the pseudocounts). Finally, the following calculation is performed for each value in the matrix: log2(value / background frequency of the nucleotide), and this gives us the PWM. 
 
 Next, every possible k-mer is obtained, where k is the length of the binding site definition. The score for every k-mer can be calculated using the PWM. For each nucleotide in the k-mer, obtain the corresponding value contained in the PWM at that position and for that particular nucleotide. Repeat this process for all nucleotides in the k-mer and take the sum of all values to obtain the score.
 
@@ -43,8 +43,8 @@ Lastly, the scores must be normalized. The user defines the minimal binding site
     - `Default = [0.25, 0.25, 0.25, 0.25]`
     - Frequencies defining the background model, which contains the probability of each nucleotide being randomly generated. 
 - **pseudocount values (comma-separated string)**
-    - `Default = None`
-    - Increase each value in the matrix by a certain value to avoid null values.
+    - `Default = auto`
+    - Increase each value in the matrix by a certain value to avoid null values. By default, the psuedocounts are calculated as described in the Methodology section above. If the user does not want to use pseudocounts, then this can be specified by setting this value to `0,0,0,0`. 
 - **report sites only (boolean)**
     - `Default = False`
     - If `True`, only report k-mers abiding by the binding site definition. If `False`, report all k-mers.
