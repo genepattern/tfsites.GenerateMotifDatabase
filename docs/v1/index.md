@@ -39,10 +39,10 @@ Lastly, the scores must be normalized. The user defines the minimal binding site
 ### Other Parameters
 - <span style="color: red;">*</span>**binding site definition (string)**
     - IUPAC definition of the core transcription factor binding site (see [here](https://www.bioinformatics.org/sms/iupac.html)). The length of the binding site definition should be the same as the length of the input PFM. 
-- <span style="color: red;">*</span>**background frequency of A,C,G,T (comma-separated string)**
+- **background frequency of A,C,G,T (comma-separated string)**
     - `Default = [0.25, 0.25, 0.25, 0.25]`
     - Frequencies defining the background model, which contains the probability of each nucleotide being randomly generated. 
-- <span style="color: red;">*</span>**pseudocount values (comma-separated string)**
+- **pseudocount values (comma-separated string)**
     - `Default = None`
     - Increase each value in the matrix by a certain value to avoid null values.
 - **report sites only (boolean)**
