@@ -94,7 +94,7 @@ AAAATCCACA    0.38
   - Scores for the sequences that follow the TF binding site definition
   - Scores for the sequences that don't follow the TF binding site definition
 
-   <img src="./01-output_ets-norm-histograms.png"/>
+   <img src="./output_ets-norm-histograms.png"/>
     
   
 ## Example Data
