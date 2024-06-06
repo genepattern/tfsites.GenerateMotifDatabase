@@ -51,13 +51,13 @@ Lastly, the scores must be normalized. The user defines the minimal binding site
 - **enforce minimum relative score (boolean)**
     - `Default = False`
     - If True, enforce the scores to range between 0 and 1. If False, the original range of scores will remain the same.
-- **define highest relative score aequence (string)**
+- **define highest relative score sequence (string)**
     - `Default = None`
     - The k-mer sequence whose score will be used to normalize the scores of all other k-mers. The relative score for this k-mer will be 1.0. 
 
 ## Warnings Printed:
 
-1. If there exists another k-mer that conforms to the binding site definition and has a higher score than one provided by the user as the **Max K-mer to Normalize**.
+1. If there exists another k-mer that conforms to the binding site definition and has a higher score than one provided by the user as **define highest relative score sequence**.
 2. If there are any k-mers that do not conform to the binding site definition but have a score greater than the k-mer provided by the user. The affinities of all non-IUPAC kmers with a higher score will be capped at 1.0.
 
 ## Input Files
