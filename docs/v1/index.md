@@ -42,7 +42,7 @@ Lastly, the scores must be normalized. The user defines the minimal binding site
 - **background frequency of A,C,G,T (comma-separated string)**
     - `Default = 0.25,0.25,0.25,0.25`
     - Frequencies defining the background model, which contains the probability of each nucleotide being randomly generated. 
-- **pseudocount values (comma-separated string)**
+- **pseudocount values of A,C,G,T (comma-separated string)**
     - `Default = auto`
     - Increase each value in the matrix by a certain value to avoid null values. By default, the psuedocounts are calculated as described in the Methodology section above. If the user does not want to use pseudocounts, then this can be specified by setting this value to `0,0,0,0`. 
 - **report sites only (boolean)**
