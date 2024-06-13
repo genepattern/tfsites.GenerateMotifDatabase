@@ -16,10 +16,10 @@
         "parameters": [
             "binding.site.definition",
             "background.frequency.of.A,C,G,T",
-            "pseudocount.values",
+            "pseudocount.values.of.A,C,G,T",
             "report.sites.only",
-            "enforce.minimum.relative.affinity",
-            "define.highest.relative.affinity.sequence"
+            "enforce.minimum.relative.score",
+            "define.highest.relative.score.sequence"
         ]
     }
 
