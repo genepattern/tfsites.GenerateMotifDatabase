@@ -1,4 +1,4 @@
-# tfsites.downloadPWMs v1
+# tfsites.GenerateMotifDatabase v1
 
 **Author(s):** Joe Solvason
 
@@ -13,7 +13,7 @@
 
 ## Introduction
 
-`downloadPWMs` can be used to obtain position weight matrix (PWM) data to score binding sites in other TFSites modules. This tool extracts the PFM(s) for one or more transcription factor(s) of interest and then converts each PFM to its respective PWM. 
+`GenerateMotifDatabase` can be used to obtain position weight matrix (PWM) data to score binding sites in other TFSites modules. This tool extracts the PFM(s) for one or more transcription factor(s) of interest and then converts each PFM to its respective PWM. 
 
 
 ## Methodology
@@ -89,7 +89,7 @@ T [ 0.4964258261194989 -1.9004643264490857 -1.9004643264490857 -3.0 -2.347923303
     
 ## Example Data
 
-Example input data is available [here]().
+Example input data is available [here](https://github.com/genepattern/tfsites.defineTFBindingSitesFromPFM/tree/develop/data).
 
     
 ## Version Comments
