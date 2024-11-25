@@ -7,17 +7,13 @@
 # Note: this test uses a custom diff command
 #
 
-name: "tfsites.DefineTfSites.from.PFM - Basic test"
-module: tfsites.DefineTFBindingSites.from.PFM
+name: "tfsites.GenerateMotifDatabase - Basic test"
+module: tfsites.GenerateMotifDatabase
 params:
-    raw.JASPAR.PFM: "data/02-input_ets_raw_pfm_data.jaspar"
-    binding.site.definition: "NNGGAWNN"
-    background.frequency.of.A,C,G,T:  0.25,0.25,0.25,0.25 
-    pseudocount.values: 1,1,1,1
-    reference.relative.affinity.table.output.filename:  "0-output_ets-norm-pbm.tsv"
-    histograms.of.relative.affinity.output.filename: "0-output_aff-histograms.png"
-    report.sites.only: FALSE
-    enforce.minimum.relative.affinity: FALSE
+    PFM.input.file: "data/02-input_JASPAR2024-CORE-vertebrates-redundant-pfms-jaspar.txt" 
+    filter.keywords: "data/02-input_keywords-list=ETS,ETV,GABP,FLI,SPI.tsv"
+    background.frequencies:  0.25,0.25,0.25,0.25 
+    use.pseudocounts.to.calculate.score: FALSE
 assertions:
     jobStatus: success
 
