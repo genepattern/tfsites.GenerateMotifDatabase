@@ -3,13 +3,13 @@
 JVMLevel=
 LSID=urn:lsid:genepattern.org:module.analysis:00459:999999999
 author=Joe Solvason
-commandLine=python /build/tfsites-webportal/02-downloadPWMs/02-downloadPWMs.py -i <PFM.input.file> -b <background.frequencies> -p <use.pseudocounts.to.calculate.score> -k <filter.keywords> -n <output.filename>         
+commandLine=python /build/tfsites-webportal/02-generateMotifDatabase/02-generateMotifDatabase.py -i <PFM.input.file> -b <background.frequencies> -p <use.pseudocounts.to.calculate.score> -k <filter.keywords> -o <output.filename>         
 cpuType=any
 description=Normalizes the median fluorescence intensity (MFI) values in a Position Frequency Matrix from JASPAR  data file for a transcription factor of interest. The k-mer with the maximum MFI that conforms to the IUPAC definition of a binding site is normalized to 1.0 and all other k-mers are normalized relative to that MFI value. 
 documentationUrl=https://genepattern.github.io/tfsites.GenerateMotifDatabase/v2/
 fileFormat=
 job.cpuCount=
-job.docker.image=genepattern/tfsites\:0.11
+job.docker.image=genepattern/tfsites\:0.12
 job.memory=
 job.walltime=
 language=any
