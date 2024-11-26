@@ -2,7 +2,7 @@
 
 **Author(s):** Joe Solvason
 
-**Contact:** Joe Solvason (solvason@eng.ucsd.edu)
+**Contact:** Joe Solvason (solvason@ucsd.edu)
 
 **Adapted as a GenePattern Module by:** Ted Liefeld (jliefeld@cloud.ucsd.edu)
 
@@ -25,8 +25,6 @@ Optionally, the user can provide keywords that are present in the matrix header 
 
 <span style="color: red;">*</span> indicates required parameter
 
-- <span style="color: red;">*</span>**name (string)**
-    - Name of the output dataset.
 - <span style="color: red;">*</span>**PFM input file (.txt)**
     - File containing multiple PFMs. It is formatted similar to a fasta file where the header line starts with ">" and is followed by that PFM. 
 - **filter keywords (.tsv)**
@@ -38,7 +36,8 @@ Optionally, the user can provide keywords that are present in the matrix header 
 - **background nucleotide frequencies (boolean)**
     - `Default = 0.25,0.25,0.25,0.25`
     - Choose the nucleotide background frequencies in the order of A, T, G, and C.
-
+- <span style="color: red;">*</span>**output name (string)**
+    - Base name of the output files.
 
 ## Input Files
 
