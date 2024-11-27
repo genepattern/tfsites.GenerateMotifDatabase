@@ -36,7 +36,7 @@ Optionally, the user can provide keywords that are present in the matrix header 
 - **background nucleotide frequencies (boolean)**
     - `Default = 0.25,0.25,0.25,0.25`
     - Choose the nucleotide background frequencies in the order of A, T, G, and C.
-- <span style="color: red;">*</span>**output name (string)**
+- <span style="color: red;">*</span>**output filename (string)**
     - Base name of the output files.
 
 ## Input Files
