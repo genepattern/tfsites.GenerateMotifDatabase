@@ -1,4 +1,4 @@
-# tfsites.GenerateMotifDatabase v1
+# tfsites.GenerateMotifDatabase v2
 
 **Author(s):** Joe Solvason
 
