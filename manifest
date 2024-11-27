@@ -3,7 +3,7 @@
 JVMLevel=
 LSID=urn:lsid:genepattern.org:module.analysis:00459:999999999
 author=Joe Solvason
-commandLine=python /build/tfsites-webportal/02-generateMotifDatabase/02-generateMotifDatabase.py -i <PFM.input.file> -b <background.frequencies> -p <use.pseudocounts.to.calculate.score> -k <filter.keywords> -o <output.filename>         
+commandLine=python /build/tfsites-webportal/02-generateMotifDatabase/02-generateMotifDatabase.py -i <PFM.input.file> -b <background.nucleotide.frequencies> -p <use.pseudocounts.to.calculate.score> -k <filter.keywords> -o <output.filename>         
 cpuType=any
 description=GenerateMotifDatabase can be used to obtain position weight matrix (PWM) data to score binding sites in other TFSites modules. This tool extracts the PFM(s) for one or more transcription factor(s) of interest and then converts each PFM to its respective PWM.
 documentationUrl=https://genepattern.github.io/tfsites.GenerateMotifDatabase/v2/
@@ -46,44 +46,47 @@ p2_value=
 
 p3_MODE=
 p3_TYPE=TEXT
-p3_default_value=<PFM.input.file_basename>_out.txt
-p3_description=Name of the output dataset. 
+p3_default_value=FALSE
+p3_description=Choose if you want to use pseudocounts to calculate the PWM score for binding sites.
 p3_fileFormat=
 p3_flag=
-p3_name=output.filename
-p3_numValues=1..1
+p3_name=use.pseudocounts.to.calculate.score
+p3_numValues=0..1
 p3_optional=
 p3_prefix=
 p3_prefix_when_specified=
 p3_type=java.lang.String
-p3_value=
+p3_value=FALSE\=FALSE;TRUE\=TRUE
 
 p4_MODE=
 p4_TYPE=TEXT
-p4_default_value=FALSE
-p4_description=Choose if you want to use pseudocounts to calculate the PWM score for binding sites.
-p4_fileFormat=
+p4_default_value=0.25,0.25,0.25,0.25
+p4_description=Choose the nucleotide background frequencies in the order of A, T, G, and C.
 p4_flag=
-p4_name=use.pseudocounts.to.calculate.score
-p4_numValues=0..1
+p4_name=background.nucleotide.frequencies
+p4_numValues=1..1
 p4_optional=
 p4_prefix=
 p4_prefix_when_specified=
 p4_type=java.lang.String
-p4_value=FALSE\=FALSE;TRUE\=TRUE
+p4_value=
+
 
 p5_MODE=
 p5_TYPE=TEXT
-p5_default_value=0.25,0.25,0.25,0.25
-p5_description=Choose the nucleotide background frequencies in the order of A, T, G, and C.
+p5_default_value=<PFM.input.file_basename>_out.txt
+p5_description=Base name of the output files. 
+p5_fileFormat=
 p5_flag=
-p5_name=background.frequencies
+p5_name=output.filename
 p5_numValues=1..1
 p5_optional=
 p5_prefix=
 p5_prefix_when_specified=
 p5_type=java.lang.String
 p5_value=
+
+
 
 privacy=public
 quality=development
