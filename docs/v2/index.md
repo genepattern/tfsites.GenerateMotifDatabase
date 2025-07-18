@@ -26,7 +26,9 @@ Optionally, the user can provide keywords that are present in the matrix header 
 <span style="color: red;">*</span> indicates required parameter
 
 - <span style="color: red;">*</span>**PFM input file (.txt)**
-    - File containing multiple PFMs. It is formatted similar to a fasta file where the header line starts with ">" and is followed by that PFM. 
+    - File containing multiple PFMs. It is formatted similar to a fasta file where the header line starts with ">" and is followed by that PFM.
+- <span style="color: red;">*</span>**PFM input format (str)**
+    - 	Input whether the motif database is a PFM (counts of each nt at each position) or PWM (frequency of each nt at each position weighted by the background frequency of the genomes and adjusted by pseudocounts).
 - **filter keywords (.tsv)**
     - `Default = None`
     - File containing a single column with a list of keywords. The keywords can be the transcription factor name and/or matrix ID. 
