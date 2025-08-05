@@ -1,6 +1,6 @@
 # tfsites.GenerateMotifDatabase v2
 
-**Author(s):** Joe Solvason
+**Author(s):** Joe Solvason, Maggie Ma
 
 **Contact:** Joe Solvason (solvason@ucsd.edu)
 
