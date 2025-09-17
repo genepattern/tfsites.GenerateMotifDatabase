@@ -5,3 +5,6 @@ Normalizes the median fluorescence intensity (MFI) values in a Position Frequenc
 Created in collaboration with the Emma Farley lab (UCSD).
 
 See documentation at https://genepattern.github.io/tfsites.DefineTfBindingSitesFromPFM/v1/
+
+Available as one of the tools on the [TFSites web portal ](https://tfsites.org) at https://tfsites.org.
+
